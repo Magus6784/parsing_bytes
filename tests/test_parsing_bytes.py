@@ -23,7 +23,8 @@ from parsing_bytes import get_data_from_payload
             id="Should raise ValueError for not hexadecimal data",
         ),
         pytest.param(
-            ["10FA0E00"], TypeError, id="Should raise TypeError for not string"
+            ["10FA0E00"], TypeError,
+            id="Should raise TypeError for not string"
         ),
         pytest.param(
             "-0FA0E00",

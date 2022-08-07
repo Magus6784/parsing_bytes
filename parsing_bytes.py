@@ -21,7 +21,6 @@ def parsing_data(binary_payload: str) -> dict:
                 parsed_data[field_name] = value
             else:
                 parsed_data[field_name] = "0" + value
-    print(device_extended_fields["field1"][str(int("100", 2))])
     return parsed_data
 
 
