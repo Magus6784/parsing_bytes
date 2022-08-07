@@ -1,4 +1,5 @@
-# Format settings - array [sett_byte1 as dict {bit: [size, 'field_name']}, sett_byte2, sett_byte3, sett_byte4]
+# Format settings - array [sett_byte1 as dict {bit: [size, 'field_name']},
+# sett_byte2, sett_byte3, sett_byte4]
 device_settings = [
     {0: [3, "field1"], 3: [1, "field2"], 4: [1, "field3"], 5: [3, "field4"]},
     {
