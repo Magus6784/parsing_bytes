@@ -42,7 +42,7 @@ field8 = {
     "7": "Very High",
 }
 
-device_special_fields = {
+device_extended_fields = {
     "field1": field1,
     "field4": field4,
     "field8": field8,
