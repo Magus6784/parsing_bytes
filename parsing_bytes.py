@@ -28,15 +28,14 @@ def convert_payload_to_binary(payload: str) -> str:
     try:
         return bin(int(payload, 16))[2:].zfill(32)
     except ValueError:
-        raise ValueError(f"Payload must be hexadecimal. Payload: {payload}")
+        raise ValueError("Payload must be hexadecimal.")
 
 
 def validate_payload(payload: str) -> None:
+    """Checking payload length, type and lack of + or -"""
     if type(payload) != str:
-        raise TypeError(f"Payload must be string. Payload: {payload}")
+        raise TypeError(f"Payload must be string")
     if len(payload) != 8:
-        raise ValueError(f"Payload length != 8. Payload: {payload}")
+        raise ValueError(f"Payload length != 8.")
     if payload[0] in "+-":
-        raise ValueError(
-            f"Operator cant be used in payload. Payload: {payload}"
-        )
+        raise ValueError(f"Operator cant be used in payload.")
