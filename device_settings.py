@@ -42,4 +42,8 @@ field8 = {
     "7": "Very High",
 }
 
-device_special_fields = ["field1", "field4", "field8"]
+device_special_fields = {
+    "field1": field1,
+    "field4": field4,
+    "field8": field8,
+}

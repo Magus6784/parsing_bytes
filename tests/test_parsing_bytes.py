@@ -3,7 +3,7 @@ from parsing_bytes import get_data_from_payload
 
 
 @pytest.mark.parametrize(
-    "payload,expected",
+    "payload,expected_error",
     [
         pytest.param("", ValueError,
                      id="Should return ValueError for empty payload"),
@@ -21,10 +21,37 @@ from parsing_bytes import get_data_from_payload
 )
 def test_payload_length_must_be_8(
     payload,
-    expected
+    expected_error
 ):
-    assert get_data_from_payload(payload) == expected
+    with pytest.raises(expected_error):
+        get_data_from_payload(payload)
 
+
+@pytest.mark.parametrize(
+    "payload,parsed_data",
+    [
+        pytest.param(
+            "10FA0E00",
+            {
+                "field1": "Low",
+                "field2": "00",
+                "field3": "01",
+                "field4": "00",
+                "field5": "00",
+                "field6": "01",
+                "field7": "00",
+                "field8": "Very High",
+                "field9": "00",
+                "field10": "00",
+            },
+            id="Should return correct data"),
+    ]
+)
+def test_correct_parsing_payload(
+    payload,
+    parsed_data
+):
+    assert get_data_from_payload(payload) == parsed_data
 
 # test_data = [
 #     (
